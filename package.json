@@ -1,0 +1,28 @@
+{
+  "name": "constructor-word-guess",
+  "version": "1.0.0",
+  "description": "In this unit's assignment, you will create a Word Guess command-line game using constructor functions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leaf-junkie/Constructor-Word-Guess.git"
+  },
+  "keywords": [
+    "wordguess",
+    "commandline",
+    "hangman",
+    "inquirer"
+  ],
+  "author": "julie ragsdale",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leaf-junkie/Constructor-Word-Guess/issues"
+  },
+  "homepage": "https://github.com/leaf-junkie/Constructor-Word-Guess#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2"
+  }
+}
