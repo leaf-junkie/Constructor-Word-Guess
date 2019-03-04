@@ -109,11 +109,45 @@ function keyUpHandler(event) {
         guessed.push(event.key);
     }
     console.log(`${guessed}`);
+};
+
+ // Check if pressed letter is included in name of current plant 
+ if (checkLetter(event.key)) {
+    // had the letter
+    
+} else {
+    // did not have the letter
+
+    // Decrement guess count
+    guessesRemaining -= 1;
+    
+    // Display the number of remaining guesses under 'Guesses Remaining'
+    console.log('Number of guesses remaining: ' + guessesRemaining);
+    document.getElementById('guessesRemaining').innerHTML = guessesRemaining;
+};
+
+// Win
+function win() {
+    let wins;
+    wins += 1;
+    console.log('You win!');
+
+    //TODO: Could add new inquirer question to ask if user would like to play again
+};
+
+function lose() {
+    let losses;
+    losses -= 1;
+    console.log('You lost \nGAME OVER');
+
+    //TODO: Could add new inquirer question to ask if user would like to play again
+};
+
+function reset() {
+    guessesRemaining = 10;
+    guessed = [];
+    randomIndex = Math.floor(Math.random() * dogBreeds.length);
+    randomWord = dogBreeds[randomIndex];
+    console.log(`Reset. New word: ${randomWord}`);
+
 }
-
-function startGame() {
-
-}
-
-
-
