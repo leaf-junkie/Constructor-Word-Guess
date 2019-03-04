@@ -21,7 +21,7 @@ const inquirer = require('inquirer');
         } else return;
     });
 
-const words = [
+const dogBreeds = [
     'Afghan Hound',
     'Akita',
     'Alaskan Malamute',
@@ -80,12 +80,40 @@ const words = [
     'Weimaraner',
     'Welsh Pembroke Corgi',
     'Yorkshire Terrier'
-]
+];
+
+// TODO:Randomly selects a word and uses the Word constructor to store it
+// 'Randomly' select word from array
+const randomIndex = Math.floor(Math.random() * dogBreeds.length);
+const randomWord = dogBreeds[randomIndex];
+
+console.log(`The selected word is: ${randomWord} (Index ${randomIndex})`);
+
+// Move guessed letters into another array
+let letters = 'abcdefghijklmnopqrstuvwxyz ';
+letters = letters.toUpperCase();
+let guessed = [];
+
+// TODO:Prompts the user for each guess and keeps track of the user's remaining guesses
+// Begin with 10 guesses
+let guessesRemaining = 10;
+
+function keyUpHandler(event) {
+    // Filter characters that are not letters or spaces
+    if (!letters.includes(event.key.toUpperCase())) return;
+
+    // Ignore redundant input
+    if (guessed.includes(event.key)) {
+        return;
+    } else {
+        guessed.push(event.key);
+    }
+    console.log(`${guessed}`);
+}
+
 function startGame() {
 
 }
 
 
-// Randomly selects a word and uses the Word constructor to store it
 
-// Prompts the user for each guess and keeps track of the user's remaining guesses
