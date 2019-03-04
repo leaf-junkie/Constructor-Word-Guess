@@ -1,25 +1,31 @@
 // The file containing the logic for the course of the game, which depends on Word.js and:
 const inquirer = require('inquirer');
     
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'username',
-            message: 'What is your name?',
-        },
-        {
-            type: 'list',
-            name: 'begin',
-            message: 'What would you like to do?',
-            choices: ['New game', 'Exit']
-        }
-    ]).then(function(response) {
-        if (response.begin.choices[0]) {
-            console.log(`\nWelcome to Word Guess, ${response.username}`);
-            console.log('Use the keyboard to guess letters in the word. \nYou have 10 guesses.');
-            startGame();
-        } else return;
-    });
+inquirer.prompt([
+    {
+        type: 'input',
+        name: 'username',
+        message: 'What is your name?',
+    },
+    {
+        type: 'string',
+        name: 'rules',
+        message: 'The theme is dog breeds.\nUnderscores will be displayed to show the number of characters (letters or spaces) are in the breed. \nEnter a letter using the keyboard. \nIf you get all of the letters in the word before guessing 10 incorrect letters, you win!'
+    },
+    {
+        type: 'list',
+        name: 'begin',
+        message: 'What would you like to do?',
+        choices: ['New game', 'Exit']
+    }
+]).then((response) => {
+    
+    console.log("hi");
+    // if (response.begin.choices[0]) {
+    //     console.log(`Welcome to Word Guess, ${response.username}`);
+    //     startGame();
+    // } else return;
+});
 
 const dogBreeds = [
     'Afghan Hound',
@@ -111,8 +117,8 @@ function keyUpHandler(event) {
     console.log(`${guessed}`);
 };
 
- // Check if pressed letter is included in name of current plant 
- if (checkLetter(event.key)) {
+// Check if pressed letter is included in name of current plant 
+if (checkLetter(event.key)) {
     // had the letter
     
 } else {
@@ -124,30 +130,30 @@ function keyUpHandler(event) {
     // Display the number of remaining guesses under 'Guesses Remaining'
     console.log('Number of guesses remaining: ' + guessesRemaining);
     document.getElementById('guessesRemaining').innerHTML = guessesRemaining;
-};
-
-// Win
-function win() {
-    let wins;
-    wins += 1;
-    console.log('You win!');
-
-    //TODO: Could add new inquirer question to ask if user would like to play again
-};
-
-function lose() {
-    let losses;
-    losses -= 1;
-    console.log('You lost \nGAME OVER');
-
-    //TODO: Could add new inquirer question to ask if user would like to play again
-};
-
-function reset() {
-    guessesRemaining = 10;
-    guessed = [];
-    randomIndex = Math.floor(Math.random() * dogBreeds.length);
-    randomWord = dogBreeds[randomIndex];
-    console.log(`Reset. New word: ${randomWord}`);
-
 }
+
+// // Win
+// function win() {
+//     let wins;
+//     wins += 1;
+//     console.log('You win!');
+
+//     //TODO: Could add new inquirer question to ask if user would like to play again
+// };
+
+// function lose() {
+//     let losses;
+//     losses -= 1;
+//     console.log('You lost \nGAME OVER');
+
+//     //TODO: Could add new inquirer question to ask if user would like to play again
+// };
+
+// function reset() {
+//     guessesRemaining = 10;
+//     guessed = [];
+//     randomIndex = Math.floor(Math.random() * dogBreeds.length);
+//     randomWord = dogBreeds[randomIndex];
+//     console.log(`Reset. New word: ${randomWord}`);
+
+// }
